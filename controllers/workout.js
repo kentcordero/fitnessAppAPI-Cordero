@@ -78,7 +78,7 @@ module.exports.deleteWorkout = (req, res) => {
     }
 
     try {
-        const deletedWorkout = Workout.deleteOne({ '_id': req.params.id });
+        const deletedWorkout = Workout.deleteOne({ '_id': req.params.id }).then(data => data);
 
         return res.status(200).send({ message: 'Workout deleted successfully' })
 
